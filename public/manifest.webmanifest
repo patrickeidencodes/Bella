@@ -1,0 +1,20 @@
+{
+  "name": "Einstellungstest Verwaltungsinformatik",
+  "short_name": "Einstellungstest",
+  "description": "Lernen, Üben und Prüfen für den Einstellungstest im öffentlichen Dienst (Saarland).",
+  "lang": "de",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8fafc",
+  "theme_color": "#129058",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

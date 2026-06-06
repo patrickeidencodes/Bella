@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    /* Kein Gummiband-Überscrollen auf Mobilgeräten */
+    overscroll-behavior-y: none;
+  }
+  /* Tap-Highlight auf Touch-Geräten entfernen (eigene aktive Zustände stattdessen) */
+  a,
+  button,
+  [role='button'],
+  input,
+  label,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Sichtbarer Fokusring für Tastaturbedienung */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-slate-50;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[44px] touch-manipulation items-center justify-center gap-2 rounded-xl px-4
+      py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50
+      select-none active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-slate-700 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 active:bg-slate-100;
+  }
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 active:bg-slate-200;
+  }
+  .card {
+    @apply rounded-2xl bg-white shadow-sm ring-1 ring-slate-200;
+  }
+  .code-block {
+    @apply whitespace-pre overflow-x-auto rounded-xl bg-slate-900 p-4 font-mono text-sm leading-relaxed text-slate-100;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer utilities {
+  /* Safe-Area-Insets (Notch / Home-Indikator) */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .h-safe-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+}
