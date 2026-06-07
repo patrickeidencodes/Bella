@@ -5,14 +5,16 @@ import { allgemeinbildung } from './areas/allgemeinbildung';
 import { informatik } from './areas/informatik';
 import type { RawArea } from './types';
 import { supplements } from './supplements';
+import { supplementsV31 } from './supplements/v31';
 
 export const rawAreas: RawArea[] = [deutsch, allgemeinbildung, informatik];
 
-// PDF-Ergänzungen (Master-Lernskript) an die passenden Themen anhängen.
+// PDF-Ergänzungen (Master-Lernskript, inkl. v3.1) an die passenden Themen anhängen.
 for (const area of rawAreas) {
   for (const topic of area.topics) {
-    const extra = supplements[topic.slug];
-    if (extra) {
+    for (const map of [supplements, supplementsV31]) {
+      const extra = map[topic.slug];
+      if (!extra) continue;
       // Ergänzungen stammen aus dem Lernskript (PDF) → entsprechend markieren
       topic.flashcards = [
         ...topic.flashcards,
