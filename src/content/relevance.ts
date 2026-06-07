@@ -44,6 +44,7 @@ export const topicRelevance: Record<string, Relevance> = {
   geografie: 2,
   'technik-naturwissenschaft': 2,
   'verwaltung-saarland': 2, // Vertiefung tief, aber Saarland-/Ministeriumsfakten beliebt
+  zahlenreihen: 2, // Logiktraining; je nach Auswahlverfahren unterschiedlich relevant
   'internationale-politik': 3, // sehr breit (G7/G20, Organisationen)
   weltwissen: 3, // breit & wenig vorhersehbar
 
