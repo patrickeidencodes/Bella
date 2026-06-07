@@ -56,7 +56,7 @@ export default function TopicPicker({ basePath, countKind }: TopicPickerProps) {
     <div className="space-y-6">
       {/* Aktionsleiste – klebt unter der Kopfzeile */}
       <div className="sticky top-[calc(env(safe-area-inset-top)+56px)] z-10 -mx-4 border-b border-slate-200 bg-slate-50/95 px-4 py-3 backdrop-blur">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="min-w-0 flex-1 text-sm">
             {selected.size === 0 ? (
               <span className="text-slate-500">Themen auswählen (eines oder mehrere)…</span>
@@ -66,11 +66,19 @@ export default function TopicPicker({ basePath, countKind }: TopicPickerProps) {
               </span>
             )}
           </div>
-          {selected.size > 0 && (
-            <button onClick={() => setSelected(new Set())} className="btn-ghost px-2 py-1 text-xs">
-              Leeren
-            </button>
-          )}
+          <button
+            onClick={() => setSelected(new Set(allTopics.map((t) => t.slug)))}
+            className="btn-secondary px-3 py-2 text-xs"
+          >
+            Alle
+          </button>
+          <button
+            onClick={() => setSelected(new Set())}
+            disabled={selected.size === 0}
+            className="btn-secondary px-3 py-2 text-xs"
+          >
+            Keine
+          </button>
           <button onClick={start} disabled={selected.size === 0} className="btn-primary px-4 py-2 text-sm">
             {countKind === 'flashcards' ? 'Lernen' : 'Üben'} starten
           </button>
@@ -109,17 +117,15 @@ export default function TopicPicker({ basePath, countKind }: TopicPickerProps) {
                       isSel ? 'ring-2 ring-brand-500' : `hover:-translate-y-0.5 hover:shadow-md ${style.ring}`
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className="pr-7 font-semibold text-slate-900">{topic.title}</h3>
-                      <span className="whitespace-nowrap rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500">
-                        {count} {countKind === 'flashcards' ? 'Karten' : 'Fragen'}
-                      </span>
-                    </div>
+                    <h3 className="pr-7 font-semibold text-slate-900">{topic.title}</h3>
                     {topic.description && (
                       <p className="mt-1 line-clamp-2 text-xs text-slate-500">{topic.description}</p>
                     )}
-                    <div className="mt-2">
+                    <div className="mt-2 flex items-center justify-between gap-2">
                       <RelevanceBadge relevance={relevanceForTopic(topic.slug)} />
+                      <span className="whitespace-nowrap text-xs font-medium text-slate-500">
+                        {count} {countKind === 'flashcards' ? 'Karten' : 'Fragen'}
+                      </span>
                     </div>
                     {/* Auswahl-Häkchen */}
                     <span
