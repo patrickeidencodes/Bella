@@ -1,38 +1,116 @@
-import { Link } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { content, flashcardsForTopic, questionsForTopic, topicsForArea } from '../content';
 import { relevanceForTopic } from '../content/relevance';
 import { areaStyle } from '../lib/areaStyle';
 import RelevanceBadge from './RelevanceBadge';
 
 interface TopicPickerProps {
-  /** Basis-Pfad, an den der Topic-Slug angehängt wird, z. B. "/ueben" → "/ueben/synonyme" */
+  /** Basis-Pfad der Session, z. B. "/ueben" → "/ueben/session?topics=..." */
   basePath: string;
-  /** Welche Zahl pro Thema angezeigt wird */
   countKind: 'flashcards' | 'questions';
 }
 
 export default function TopicPicker({ basePath, countKind }: TopicPickerProps) {
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+
+  const countFor = (topicId: number) =>
+    countKind === 'flashcards'
+      ? flashcardsForTopic(topicId).length
+      : questionsForTopic(topicId).length;
+
+  const allTopics = useMemo(() => content.topics.filter((t) => countFor(t.id) > 0), [countKind]);
+
+  function toggle(slug: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+  }
+
+  function setMany(slugs: string[], on: boolean) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      for (const s of slugs) {
+        if (on) next.add(s);
+        else next.delete(s);
+      }
+      return next;
+    });
+  }
+
+  const selectedTopics = allTopics.filter((t) => selected.has(t.slug));
+  const totalItems = selectedTopics.reduce((sum, t) => sum + countFor(t.id), 0);
+  const itemWord = countKind === 'flashcards' ? 'Karten' : 'Fragen';
+
+  function start() {
+    if (selected.size === 0) return;
+    const slugs = allTopics.filter((t) => selected.has(t.slug)).map((t) => t.slug);
+    navigate(`${basePath}/session?topics=${slugs.join(',')}`);
+  }
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
+      {/* Aktionsleiste – klebt unter der Kopfzeile */}
+      <div className="sticky top-[calc(env(safe-area-inset-top)+56px)] z-10 -mx-4 border-b border-slate-200 bg-slate-50/95 px-4 py-3 backdrop-blur">
+        <div className="flex items-center gap-3">
+          <div className="min-w-0 flex-1 text-sm">
+            {selected.size === 0 ? (
+              <span className="text-slate-500">Themen auswählen (eines oder mehrere)…</span>
+            ) : (
+              <span className="font-medium text-slate-700">
+                {selected.size} {selected.size === 1 ? 'Thema' : 'Themen'} · {totalItems} {itemWord}
+              </span>
+            )}
+          </div>
+          {selected.size > 0 && (
+            <button onClick={() => setSelected(new Set())} className="btn-ghost px-2 py-1 text-xs">
+              Leeren
+            </button>
+          )}
+          <button onClick={start} disabled={selected.size === 0} className="btn-primary px-4 py-2 text-sm">
+            {countKind === 'flashcards' ? 'Lernen' : 'Üben'} starten
+          </button>
+        </div>
+      </div>
+
       {content.areas.map((area) => {
         const style = areaStyle(area.slug);
-        const topics = topicsForArea(area.id);
+        const topics = topicsForArea(area.id).filter((t) => countFor(t.id) > 0);
+        const areaSlugs = topics.map((t) => t.slug);
+        const allOn = areaSlugs.length > 0 && areaSlugs.every((s) => selected.has(s));
         return (
           <section key={area.id}>
-            <h2 className={`mb-3 flex items-center gap-2 text-lg font-bold ${style.accent}`}>
-              <span>{style.emoji}</span> {area.title}
-            </h2>
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <h2 className={`flex items-center gap-2 text-lg font-bold ${style.accent}`}>
+                <span>{style.emoji}</span> {area.title}
+              </h2>
+              <button
+                onClick={() => setMany(areaSlugs, !allOn)}
+                className="btn-ghost px-2 py-1 text-xs"
+              >
+                {allOn ? 'Bereich abwählen' : 'Bereich wählen'}
+              </button>
+            </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {topics.map((topic) => {
-                const count =
-                  countKind === 'flashcards'
-                    ? flashcardsForTopic(topic.id).length
-                    : questionsForTopic(topic.id).length;
-                const disabled = count === 0;
-                const inner = (
-                  <>
+                const isSel = selected.has(topic.slug);
+                const count = countFor(topic.id);
+                return (
+                  <button
+                    key={topic.id}
+                    type="button"
+                    onClick={() => toggle(topic.slug)}
+                    aria-pressed={isSel}
+                    className={`card relative p-4 text-left transition-all active:scale-[0.99] ${
+                      isSel ? 'ring-2 ring-brand-500' : `hover:-translate-y-0.5 hover:shadow-md ${style.ring}`
+                    }`}
+                  >
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-semibold text-slate-900">{topic.title}</h3>
+                      <h3 className="pr-7 font-semibold text-slate-900">{topic.title}</h3>
                       <span className="whitespace-nowrap rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500">
                         {count} {countKind === 'flashcards' ? 'Karten' : 'Fragen'}
                       </span>
@@ -43,25 +121,16 @@ export default function TopicPicker({ basePath, countKind }: TopicPickerProps) {
                     <div className="mt-2">
                       <RelevanceBadge relevance={relevanceForTopic(topic.slug)} />
                     </div>
-                  </>
-                );
-                return disabled ? (
-                  <div
-                    key={topic.id}
-                    className="card cursor-not-allowed p-4 opacity-50"
-                    aria-disabled
-                    title="Noch keine Inhalte"
-                  >
-                    {inner}
-                  </div>
-                ) : (
-                  <Link
-                    key={topic.id}
-                    to={`${basePath}/${topic.slug}`}
-                    className={`card p-4 transition-all hover:-translate-y-0.5 hover:shadow-md hover:ring-2 ${style.ring}`}
-                  >
-                    {inner}
-                  </Link>
+                    {/* Auswahl-Häkchen */}
+                    <span
+                      className={`absolute right-3 top-3 grid h-6 w-6 place-items-center rounded-md border text-sm ${
+                        isSel ? 'border-brand-600 bg-brand-600 text-white' : 'border-slate-300 bg-white text-transparent'
+                      }`}
+                      aria-hidden
+                    >
+                      ✓
+                    </span>
+                  </button>
                 );
               })}
             </div>

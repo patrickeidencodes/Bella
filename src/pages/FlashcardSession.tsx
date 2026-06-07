@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type TouchEvent } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { flashcardsForTopic, topicBySlug } from '../content';
-import type { Flashcard, QuestionSource } from '../types';
+import type { Flashcard, QuestionSource, Topic } from '../types';
 import { recordFlashcardReview } from '../lib/progress';
 import { notifyProgressChanged } from '../hooks/useProgress';
 import { shuffle } from '../lib/utils';
@@ -10,12 +10,24 @@ import { EmptyState } from '../components/states';
 
 export default function FlashcardSession() {
   const { topicSlug } = useParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const topic = topicSlug ? topicBySlug.get(topicSlug) : undefined;
+
+  const slugs = useMemo(() => {
+    const param = searchParams.get('topics');
+    return param ? param.split(',').filter(Boolean) : topicSlug ? [topicSlug] : [];
+  }, [searchParams, topicSlug]);
+
+  const topics = useMemo<Topic[]>(
+    () => slugs.map((s) => topicBySlug.get(s)).filter((t): t is Topic => Boolean(t)),
+    [slugs],
+  );
+  const title = topics.length === 1 ? topics[0].title : `${topics.length} Themen kombiniert`;
+  const slugParam = topics.map((t) => t.slug).join(',');
 
   const allCards = useMemo<Flashcard[]>(
-    () => (topic ? flashcardsForTopic(topic.id) : []),
-    [topic],
+    () => topics.flatMap((t) => flashcardsForTopic(t.id)),
+    [topics],
   );
 
   const [phase, setPhase] = useState<'setup' | 'learning'>('setup');
@@ -93,11 +105,11 @@ export default function FlashcardSession() {
     return () => window.removeEventListener('keydown', onKey);
   }, [flipped, finished, current, handleAssess]);
 
-  if (!topic) {
+  if (topics.length === 0) {
     return (
       <EmptyState
-        title="Thema nicht gefunden"
-        description="Bitte wähle ein Thema aus der Übersicht."
+        title="Kein Thema ausgewählt"
+        description="Bitte wähle ein oder mehrere Themen aus der Übersicht."
         action={
           <Link to="/lernen" className="btn-primary">
             Zur Themenauswahl
@@ -110,11 +122,11 @@ export default function FlashcardSession() {
   if (allCards.length === 0) {
     return (
       <EmptyState
-        title={`Keine Karteikarten für „${topic.title}“`}
-        description="Für dieses Thema sind noch keine Karteikarten hinterlegt."
+        title={`Keine Karteikarten für „${title}“`}
+        description="Für die Auswahl sind keine Karteikarten hinterlegt."
         action={
           <Link to="/lernen" className="btn-primary">
-            Anderes Thema wählen
+            Andere Themen wählen
           </Link>
         }
       />
@@ -140,8 +152,13 @@ export default function FlashcardSession() {
         </Link>
         <div className="card space-y-5 p-6">
           <div>
-            <h1 className="text-xl font-bold text-slate-900">{topic.title}</h1>
-            {topic.description && <p className="mt-1 text-sm text-slate-500">{topic.description}</p>}
+            <h1 className="text-xl font-bold text-slate-900">{title}</h1>
+            {topics.length === 1 && topics[0].description && (
+              <p className="mt-1 text-sm text-slate-500">{topics[0].description}</p>
+            )}
+            {topics.length > 1 && (
+              <p className="mt-1 text-sm text-slate-500">{topics.map((t) => t.title).join(' · ')}</p>
+            )}
           </div>
 
           <fieldset>
@@ -183,7 +200,7 @@ export default function FlashcardSession() {
         <button onClick={() => setPhase('setup')} className="btn-ghost px-2 py-1 text-sm">
           ← Auswahl
         </button>
-        <h1 className="text-base font-bold text-slate-800">{topic.title}</h1>
+        <h1 className="truncate px-2 text-base font-bold text-slate-800">{title}</h1>
         <button onClick={restart} className="btn-ghost px-2 py-1 text-sm">
           Neu mischen
         </button>
@@ -204,13 +221,16 @@ export default function FlashcardSession() {
           <div className="text-4xl">🎉</div>
           <h2 className="text-xl font-bold text-slate-800">Stapel geschafft!</h2>
           <p className="text-sm text-slate-500">
-            Du hast alle {totalUnique} Karten zu „{topic.title}“ als gewusst markiert.
+            Du hast alle {totalUnique} Karten zu „{title}“ als gewusst markiert.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button onClick={restart} className="btn-primary">
               Nochmal lernen
             </button>
-            <button onClick={() => navigate('/ueben/' + topic.slug)} className="btn-secondary">
+            <button
+              onClick={() => navigate(`/ueben/session?topics=${slugParam}`)}
+              className="btn-secondary"
+            >
               Jetzt dazu üben
             </button>
           </div>

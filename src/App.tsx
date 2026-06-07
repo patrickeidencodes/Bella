@@ -15,8 +15,10 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Dashboard />} />
         <Route path="/lernen" element={<LearnSelect />} />
+        <Route path="/lernen/session" element={<FlashcardSession />} />
         <Route path="/lernen/:topicSlug" element={<FlashcardSession />} />
         <Route path="/ueben" element={<PracticeSelect />} />
+        <Route path="/ueben/session" element={<CategoryTest />} />
         <Route path="/ueben/:topicSlug" element={<CategoryTest />} />
         <Route path="/pruefung" element={<ExamSim />} />
         <Route path="/statistik" element={<Stats />} />

@@ -1,8 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { questionsForTopic, topicBySlug } from '../content';
 import { relevanceLabel } from '../content/relevance';
-import type { Difficulty, Question, QuestionSource, Relevance } from '../types';
+import type { Difficulty, Question, QuestionSource, Relevance, Topic } from '../types';
 import { isAnswerCorrect, percent, shuffle } from '../lib/utils';
 import { recordAttempt } from '../lib/progress';
 import { notifyProgressChanged } from '../hooks/useProgress';
@@ -20,8 +20,17 @@ interface Result {
 
 export default function CategoryTest() {
   const { topicSlug } = useParams();
-  const topic = topicSlug ? topicBySlug.get(topicSlug) : undefined;
-  const allQuestions = useMemo(() => (topic ? questionsForTopic(topic.id) : []), [topic]);
+  const [searchParams] = useSearchParams();
+  const slugs = useMemo(() => {
+    const param = searchParams.get('topics');
+    return param ? param.split(',').filter(Boolean) : topicSlug ? [topicSlug] : [];
+  }, [searchParams, topicSlug]);
+  const topics = useMemo<Topic[]>(
+    () => slugs.map((s) => topicBySlug.get(s)).filter((t): t is Topic => Boolean(t)),
+    [slugs],
+  );
+  const title = topics.length === 1 ? topics[0].title : `${topics.length} Themen kombiniert`;
+  const allQuestions = useMemo(() => topics.flatMap((t) => questionsForTopic(t.id)), [topics]);
 
   const [phase, setPhase] = useState<Phase>('setup');
   const [pool, setPool] = useState<Question[]>([]);
@@ -76,10 +85,11 @@ export default function CategoryTest() {
     setRevealed(false);
   }, [index, pool.length]);
 
-  if (!topic) {
+  if (topics.length === 0) {
     return (
       <EmptyState
-        title="Thema nicht gefunden"
+        title="Kein Thema ausgewählt"
+        description="Bitte wähle ein oder mehrere Themen aus der Übersicht."
         action={
           <Link to="/ueben" className="btn-primary">
             Zur Themenauswahl
@@ -92,11 +102,11 @@ export default function CategoryTest() {
   if (allQuestions.length === 0) {
     return (
       <EmptyState
-        title={`Keine Fragen für „${topic.title}“`}
-        description="Für dieses Thema sind noch keine Übungsfragen hinterlegt."
+        title={`Keine Fragen für „${title}“`}
+        description="Für die Auswahl sind keine Übungsfragen hinterlegt."
         action={
           <Link to="/ueben" className="btn-primary">
-            Anderes Thema wählen
+            Andere Themen wählen
           </Link>
         }
       />
@@ -140,8 +150,13 @@ export default function CategoryTest() {
         </Link>
         <div className="card space-y-5 p-6">
           <div>
-            <h1 className="text-xl font-bold text-slate-900">{topic.title}</h1>
-            {topic.description && <p className="mt-1 text-sm text-slate-500">{topic.description}</p>}
+            <h1 className="text-xl font-bold text-slate-900">{title}</h1>
+            {topics.length === 1 && topics[0].description && (
+              <p className="mt-1 text-sm text-slate-500">{topics[0].description}</p>
+            )}
+            {topics.length > 1 && (
+              <p className="mt-1 text-sm text-slate-500">{topics.map((t) => t.title).join(' · ')}</p>
+            )}
           </div>
 
           <fieldset>
@@ -219,7 +234,7 @@ export default function CategoryTest() {
             {correctCount} / {results.length} richtig
           </h1>
           <p className="text-sm text-slate-500">
-            Trefferquote: {percent(correctCount, results.length)}% · Thema „{topic.title}“
+            Trefferquote: {percent(correctCount, results.length)}% · „{title}“
           </p>
           <div className="mt-2 flex flex-wrap justify-center gap-3">
             <button onClick={() => start(allQuestions)} className="btn-primary">

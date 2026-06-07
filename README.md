@@ -9,8 +9,9 @@ Lern-Website zur Vorbereitung auf den Einstellungstest im öffentlichen Dienst
 
 Drei Modi:
 
-- **Lernen** – Theorie als Karteikarten (umdrehen, „gewusst/nicht gewusst“, einfaches Spaced-Repetition)
+- **Lernen** – Theorie als Karteikarten (umdrehen, „gewusst/nicht gewusst”, einfaches Spaced-Repetition)
 - **Üben** – Kategorie-Tests mit vielen Aufgaben, sofortigem Feedback und Erklärung
+- **Mehrere Kategorien kombinierbar** – beim Lernen und Üben lassen sich ein einzelnes Thema oder mehrere Themen (auch bereichsübergreifend, z. B. Rechtschreibung + Fremdwörter + Politisches System + Java) in einer Session zusammenstellen
 - **Prüfen** – Prüfungssimulation (Standard 70 Fragen in 30 Min) mit Countdown, ohne Zwischen-Feedback, mit vollständiger Auswertung
 
 Oberfläche und Inhalte sind durchgehend **auf Deutsch**.
