@@ -8,6 +8,7 @@ import programmierGrundlagen from '../topics/programmier-grundlagen';
 import itSicherheit from '../topics/it-sicherheit';
 import edvAbkuerzungen from '../topics/edv-abkuerzungen';
 import java from '../topics/java';
+import digitaleVerwaltungKuer from '../topics/digitale-verwaltung-kuer';
 
 export const informatik: RawArea = {
   slug: 'informatik',
@@ -22,5 +23,6 @@ export const informatik: RawArea = {
     itSicherheit,
     edvAbkuerzungen,
     java,
+    digitaleVerwaltungKuer,
   ],
 };

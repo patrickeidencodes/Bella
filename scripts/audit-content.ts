@@ -10,8 +10,9 @@ let problems = 0;
 for (const topic of content.topics) {
   const fcs = content.flashcards.filter((f) => f.topicId === topic.id);
   const qs = content.questions.filter((q) => q.topicId === topic.id);
-  const minFc = 15;
-  const minQ = topic.slug === 'java' ? 40 : WORDLIST.has(topic.slug) ? 50 : 30;
+  const isKuer = topic.slug.endsWith('-kuer'); // Zusatz/Kür: kleinere Mindestmengen
+  const minFc = isKuer ? 5 : 15;
+  const minQ = isKuer ? 8 : topic.slug === 'java' ? 40 : WORDLIST.has(topic.slug) ? 50 : 30;
 
   const flags: string[] = [];
   if (fcs.length < minFc) flags.push(`Karten ${fcs.length}<${minFc}`);

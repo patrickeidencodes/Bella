@@ -15,6 +15,7 @@ import weltwissen from '../topics/weltwissen';
 import technikNaturwissenschaft from '../topics/technik-naturwissenschaft';
 import verwaltungSaarland from '../topics/verwaltung-saarland';
 import zahlenreihen from '../topics/zahlenreihen';
+import landeskundeSaarlandKuer from '../topics/landeskunde-saarland-kuer';
 
 export const allgemeinbildung: RawArea = {
   slug: 'allgemeinbildung',
@@ -36,5 +37,6 @@ export const allgemeinbildung: RawArea = {
     technikNaturwissenschaft,
     zahlenreihen,
     verwaltungSaarland,
+    landeskundeSaarlandKuer,
   ],
 };

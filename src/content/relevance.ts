@@ -45,6 +45,7 @@ export const topicRelevance: Record<string, Relevance> = {
   'technik-naturwissenschaft': 2,
   'verwaltung-saarland': 2, // Vertiefung tief, aber Saarland-/Ministeriumsfakten beliebt
   zahlenreihen: 2, // Logiktraining; je nach Auswahlverfahren unterschiedlich relevant
+  'landeskunde-saarland-kuer': 3, // Kür / Zusatz – über den Pflichtstoff hinaus
   'internationale-politik': 3, // sehr breit (G7/G20, Organisationen)
   weltwissen: 3, // breit & wenig vorhersehbar
 
@@ -58,6 +59,7 @@ export const topicRelevance: Record<string, Relevance> = {
   'netzwerke-datenbanken': 2,
   'programmier-grundlagen': 2,
   softwareentwicklung: 3, // ISO-Normen, Tuckman u. Ä. – tiefer/seltener
+  'digitale-verwaltung-kuer': 3, // Kür / Zusatz – über den Pflichtstoff hinaus
 };
 
 export function relevanceForTopic(slug: string): Relevance {
