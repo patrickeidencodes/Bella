@@ -12,6 +12,7 @@ Drei Modi:
 - **Lernen** – Theorie als Karteikarten (umdrehen, „gewusst/nicht gewusst”, einfaches Spaced-Repetition)
 - **Üben** – Kategorie-Tests mit vielen Aufgaben, sofortigem Feedback und Erklärung
 - **Mehrere Kategorien kombinierbar** – beim Lernen und Üben lassen sich ein einzelnes Thema oder mehrere Themen (auch bereichsübergreifend, z. B. Rechtschreibung + Fremdwörter + Politisches System + Java) in einer Session zusammenstellen
+- **Vorlesen (Text-to-Speech)** – Karten und Fragen können vorgelesen werden (🔊-Button an jeder Karte/Frage, optional automatisch). Nutzt die im Browser eingebaute deutsche Sprachausgabe (Web Speech API), kein externer Dienst
 - **Prüfen** – Prüfungssimulation (Standard 70 Fragen in 30 Min) mit Countdown, ohne Zwischen-Feedback, mit vollständiger Auswertung
 
 Oberfläche und Inhalte sind durchgehend **auf Deutsch**.

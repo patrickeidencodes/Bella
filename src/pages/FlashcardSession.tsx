@@ -4,8 +4,11 @@ import { flashcardsForTopic, topicBySlug } from '../content';
 import type { Flashcard, QuestionSource, Topic } from '../types';
 import { recordFlashcardReview } from '../lib/progress';
 import { notifyProgressChanged } from '../hooks/useProgress';
+import { useReadAloud, setReadAloud } from '../hooks/useReadAloud';
+import { speak, stopSpeaking, speechSupported } from '../lib/speech';
 import { shuffle } from '../lib/utils';
 import ProgressBar from '../components/ProgressBar';
+import SpeakButton from '../components/SpeakButton';
 import { EmptyState } from '../components/states';
 
 export default function FlashcardSession() {
@@ -32,6 +35,7 @@ export default function FlashcardSession() {
 
   const [phase, setPhase] = useState<'setup' | 'learning'>('setup');
   const [selSource, setSelSource] = useState<QuestionSource | 'all'>('all');
+  const readAloud = useReadAloud();
   const [deck, setDeck] = useState<Flashcard[]>([]);
   const [queue, setQueue] = useState<Flashcard[]>([]);
   const [mastered, setMastered] = useState<Set<number>>(new Set());
@@ -104,6 +108,16 @@ export default function FlashcardSession() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [flipped, finished, current, handleAssess]);
+
+  // Automatisch vorlesen: Vorderseite bei neuer Karte, Rückseite beim Umdrehen
+  useEffect(() => {
+    if (phase === 'learning' && readAloud && current) {
+      speak(flipped ? current.back : current.front);
+    }
+  }, [phase, current, flipped, readAloud]);
+
+  // Vorlesen beim Verlassen stoppen
+  useEffect(() => () => stopSpeaking(), []);
 
   if (topics.length === 0) {
     return (
@@ -179,6 +193,27 @@ export default function FlashcardSession() {
               generierte Karten.
             </p>
           </fieldset>
+
+          {speechSupported && (
+            <label className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-3 py-2.5">
+              <span className="text-sm font-medium text-slate-700">🔊 Karten automatisch vorlesen</span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={readAloud}
+                onClick={() => setReadAloud(!readAloud)}
+                className={`relative h-7 w-12 flex-shrink-0 rounded-full transition-colors ${
+                  readAloud ? 'bg-brand-600' : 'bg-slate-300'
+                }`}
+              >
+                <span
+                  className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${
+                    readAloud ? 'translate-x-[22px]' : 'translate-x-0.5'
+                  }`}
+                />
+              </button>
+            </label>
+          )}
 
           <button
             onClick={() => start(selSource)}
@@ -359,6 +394,10 @@ function FlashcardView({
             <span className="mt-2 text-xs text-slate-400">Tippen zum Umdrehen</span>
           )}
         </button>
+        <SpeakButton
+          text={flipped ? card.back : card.front}
+          className="absolute bottom-3 right-3 bg-white"
+        />
       </div>
 
       {flipped ? (

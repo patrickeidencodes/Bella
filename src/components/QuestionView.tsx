@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { Question } from '../types';
 import { correctAnswerText, isAnswerCorrect } from '../lib/utils';
+import { readableQuestion } from '../lib/speech';
 import RelevanceBadge from './RelevanceBadge';
+import SpeakButton from './SpeakButton';
 
 interface QuestionViewProps {
   question: Question;
@@ -10,6 +12,8 @@ interface QuestionViewProps {
   /** Lösung & Erklärung anzeigen (Übungsmodus). Im Prüfungsmodus false. */
   revealed?: boolean;
   disabled?: boolean;
+  /** Vorlese-Button anzeigen */
+  speakable?: boolean;
 }
 
 const typeLabels: Record<Question['type'], string> = {
@@ -26,6 +30,7 @@ export default function QuestionView({
   onSelect,
   revealed = false,
   disabled = false,
+  speakable = false,
 }: QuestionViewProps) {
   const hasOptions = Array.isArray(question.options) && question.options.length > 0;
   const isFill = question.type === 'fill' || !hasOptions;
@@ -50,6 +55,7 @@ export default function QuestionView({
         >
           {question.source === 'pdf' ? '📄 Lernskript' : '✨ Zusatz'}
         </span>
+        {speakable && <SpeakButton text={readableQuestion(question)} label="Vorlesen" className="ml-auto" />}
       </div>
 
       <p className="text-lg font-semibold leading-snug text-slate-900">{question.prompt}</p>

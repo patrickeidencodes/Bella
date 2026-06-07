@@ -1,11 +1,13 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { questionsForTopic, topicBySlug } from '../content';
 import { relevanceLabel } from '../content/relevance';
 import type { Difficulty, Question, QuestionSource, Relevance, Topic } from '../types';
 import { isAnswerCorrect, percent, shuffle } from '../lib/utils';
+import { speak, stopSpeaking, speechSupported, readableQuestion } from '../lib/speech';
 import { recordAttempt } from '../lib/progress';
 import { notifyProgressChanged } from '../hooks/useProgress';
+import { useReadAloud, setReadAloud } from '../hooks/useReadAloud';
 import QuestionView from '../components/QuestionView';
 import ProgressBar from '../components/ProgressBar';
 import { EmptyState } from '../components/states';
@@ -43,6 +45,7 @@ export default function CategoryTest() {
   const [selDifficulty, setSelDifficulty] = useState<Difficulty | 'all'>('all');
   const [selRelevance, setSelRelevance] = useState<Relevance | 'all'>('all');
   const [selSource, setSelSource] = useState<QuestionSource | 'all'>('all');
+  const readAloud = useReadAloud();
 
   const start = useCallback((questions: Question[]) => {
     setPool(shuffle(questions));
@@ -84,6 +87,16 @@ export default function CategoryTest() {
     setAnswer(null);
     setRevealed(false);
   }, [index, pool.length]);
+
+  // Automatisch vorlesen, sobald eine neue Frage erscheint
+  useEffect(() => {
+    if (phase === 'running' && readAloud && current) {
+      speak(readableQuestion(current));
+    }
+  }, [phase, current, readAloud]);
+
+  // Vorlesen beim Verlassen stoppen
+  useEffect(() => () => stopSpeaking(), []);
 
   if (topics.length === 0) {
     return (
@@ -208,6 +221,27 @@ export default function CategoryTest() {
             </div>
           </fieldset>
 
+          {speechSupported && (
+            <label className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-3 py-2.5">
+              <span className="text-sm font-medium text-slate-700">🔊 Fragen automatisch vorlesen</span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={readAloud}
+                onClick={() => setReadAloud(!readAloud)}
+                className={`relative h-7 w-12 flex-shrink-0 rounded-full transition-colors ${
+                  readAloud ? 'bg-brand-600' : 'bg-slate-300'
+                }`}
+              >
+                <span
+                  className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform ${
+                    readAloud ? 'translate-x-[22px]' : 'translate-x-0.5'
+                  }`}
+                />
+              </button>
+            </label>
+          )}
+
           <button
             onClick={() => start(filteredQuestions)}
             disabled={filteredQuestions.length === 0}
@@ -289,6 +323,7 @@ export default function CategoryTest() {
           selected={answer}
           onSelect={setAnswer}
           revealed={revealed}
+          speakable
         />
       </div>
 
