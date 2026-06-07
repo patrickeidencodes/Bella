@@ -4,15 +4,15 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
   flashcards: [
     {
       front: "Was ist Standardsoftware?",
-      back: "Fertige Software von der Stange fuer alle Nutzer, z. B. Word oder Excel."
+      back: "Fertige Software von der Stange für alle Nutzer, z. B. Word oder Excel."
     },
     {
       front: "Was ist Individualsoftware?",
-      back: "Massgeschneiderte Software fuer einen bestimmten Kunden, z. B. ein Buergerportal."
+      back: "Massgeschneiderte Software für einen bestimmten Kunden, z. B. ein Bürgerportal."
     },
     {
-      front: "Was unterscheidet proprietaere Software von Open Source?",
-      back: "Proprietaere Software hat geschlossenen Quellcode (z. B. Windows); Open Source hat offenen, einsehbaren Quellcode (z. B. Linux)."
+      front: "Was unterscheidet proprietäre Software von Open Source?",
+      back: "Proprietäre Software hat geschlossenen Quellcode (z. B. Windows); Open Source hat offenen, einsehbaren Quellcode (z. B. Linux)."
     },
     {
       front: "Was ist ein Betriebssystem (OS)?",
@@ -24,7 +24,7 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       front: "Was bedeutet Cloud-Computing?",
-      back: "Speicher und Programme liegen nicht auf dem eigenen Geraet, sondern auf fremden Servern im Internet, z. B. Google Drive oder iCloud."
+      back: "Speicher und Programme liegen nicht auf dem eigenen Gerät, sondern auf fremden Servern im Internet, z. B. Google Drive oder iCloud."
     },
     {
       front: "Was bedeutet IaaS?",
@@ -36,11 +36,11 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       front: "Was bedeutet SaaS?",
-      back: "Software as a Service: Man nutzt fertige Software direkt ueber das Internet, ohne sie zu installieren."
+      back: "Software as a Service: Man nutzt fertige Software direkt über das Internet, ohne sie zu installieren."
     },
     {
-      front: "Nenne je ein Beispiel fuer proprietaere Software und Open-Source-Software.",
-      back: "Proprietaer: Windows. Open Source: Linux."
+      front: "Nenne je ein Beispiel für proprietäre Software und Open-Source-Software.",
+      back: "Proprietär: Windows. Open Source: Linux."
     }
   ],
   questions: [
@@ -48,26 +48,26 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       type: "mc",
       prompt: "Welche Aussage beschreibt Standardsoftware korrekt?",
       options: [
-        "Sie wird speziell fuer einen einzelnen Kunden entwickelt.",
-        "Sie ist fuer alle Nutzer fertig verfuegbar, z. B. Word oder Excel.",
+        "Sie wird speziell für einen einzelnen Kunden entwickelt.",
+        "Sie ist für alle Nutzer fertig verfügbar, z. B. Word oder Excel.",
         "Sie hat immer offenen Quellcode.",
         "Sie kann nur auf Linux betrieben werden."
       ],
       correct: [1],
-      explanation: "Standardsoftware ist fertige Software von der Stange fuer alle Nutzer, wie z. B. Word oder Excel. Individualsoftware hingegen wird massgeschneidert fuer einen Kunden erstellt.",
+      explanation: "Standardsoftware ist fertige Software von der Stange für alle Nutzer, wie z. B. Word oder Excel. Individualsoftware hingegen wird massgeschneidert für einen Kunden erstellt.",
       difficulty: 1
     },
     {
       type: "mc",
-      prompt: "Was ist ein typisches Beispiel fuer Individualsoftware?",
+      prompt: "Was ist ein typisches Beispiel für Individualsoftware?",
       options: [
         "Microsoft Excel",
         "Google Chrome",
-        "Ein Buergerportal fuer eine Gemeindeverwaltung",
+        "Ein Bürgerportal für eine Gemeindeverwaltung",
         "Das Betriebssystem Windows"
       ],
       correct: [2],
-      explanation: "Individualsoftware ist massgeschneidert fuer einen bestimmten Kunden, z. B. ein Buergerportal fuer eine Gemeindeverwaltung.",
+      explanation: "Individualsoftware ist massgeschneidert für einen bestimmten Kunden, z. B. ein Bürgerportal für eine Gemeindeverwaltung.",
       difficulty: 1
     },
     {
@@ -75,17 +75,17 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       prompt: "Welches Merkmal kennzeichnet Open-Source-Software?",
       options: [
         "Der Quellcode ist geschlossen und nicht einsehbar.",
-        "Sie darf ausschliesslich kostenlos genutzt werden.",
-        "Der Quellcode ist offen und fuer jeden einsehbar.",
-        "Sie laeuft nur auf Windows."
+        "Sie darf ausschließlich kostenlos genutzt werden.",
+        "Der Quellcode ist offen und für jeden einsehbar.",
+        "Sie läuft nur auf Windows."
       ],
       correct: [2],
-      explanation: "Open-Source-Software hat offenen, einsehbaren Quellcode. Linux ist ein bekanntes Beispiel. Proprietaere Software wie Windows hat dagegen geschlossenen Quellcode.",
+      explanation: "Open-Source-Software hat offenen, einsehbaren Quellcode. Linux ist ein bekanntes Beispiel. Proprietäre Software wie Windows hat dagegen geschlossenen Quellcode.",
       difficulty: 1
     },
     {
       type: "mc",
-      prompt: "Welches der folgenden Systeme ist KEIN Beispiel fuer ein Betriebssystem?",
+      prompt: "Welches der folgenden Systeme ist KEIN Beispiel für ein Betriebssystem?",
       options: [
         "Linux",
         "Android",
@@ -103,7 +103,7 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
         "Dateien im Internet speichern",
         "Das Netzwerk verwalten",
         "Schreiben, Testen und Fehlersuchen von Code",
-        "Betriebssystem-Updates durchfuehren"
+        "Betriebssystem-Updates durchführen"
       ],
       correct: [2],
       explanation: "Eine IDE (Integrated Development Environment) ist eine Entwicklungsumgebung, die Werkzeuge zum Schreiben, Testen und Fehlersuchen von Code vereint.",
@@ -113,13 +113,13 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       type: "mc",
       prompt: "Was beschreibt Cloud-Computing treffend?",
       options: [
-        "Programme werden ausschliesslich lokal auf dem eigenen Geraet gespeichert.",
+        "Programme werden ausschließlich lokal auf dem eigenen Gerät gespeichert.",
         "Speicher und Programme liegen auf fremden Servern im Internet.",
         "Eine spezielle Art von Betriebssystem.",
         "Ein Werkzeug zur Softwareentwicklung."
       ],
       correct: [1],
-      explanation: "Beim Cloud-Computing liegen Speicher und Programme nicht auf dem eigenen Geraet, sondern auf fremden Servern im Internet, z. B. Google Drive oder iCloud.",
+      explanation: "Beim Cloud-Computing liegen Speicher und Programme nicht auf dem eigenen Gerät, sondern auf fremden Servern im Internet, z. B. Google Drive oder iCloud.",
       difficulty: 1
     },
     {
@@ -137,7 +137,7 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       type: "mc",
-      prompt: "Ein Entwickler-Team moechte einen fertigen Baukasten mieten, um eine eigene Webanwendung zu erstellen, ohne sich um die Infrastruktur zu kuemmern. Welches Cloud-Modell passt?",
+      prompt: "Ein Entwickler-Team möchte einen fertigen Baukasten mieten, um eine eigene Webanwendung zu erstellen, ohne sich um die Infrastruktur zu kümmern. Welches Cloud-Modell passt?",
       options: [
         "IaaS",
         "SaaS",
@@ -145,31 +145,31 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
         "Open Source"
       ],
       correct: [2],
-      explanation: "PaaS (Platform as a Service) bietet einen Entwicklungs-Baukasten, der Infrastruktur und Laufzeitumgebung bereitstellt, sodass sich Entwickler auf den Code konzentrieren koennen.",
+      explanation: "PaaS (Platform as a Service) bietet einen Entwicklungs-Baukasten, der Infrastruktur und Laufzeitumgebung bereitstellt, sodass sich Entwickler auf den Code konzentrieren können.",
       difficulty: 2
     },
     {
       type: "mc",
-      prompt: "Welches Cloud-Modell beschreibt die Nutzung fertiger Software direkt ueber das Internet?",
+      prompt: "Welches Cloud-Modell beschreibt die Nutzung fertiger Software direkt über das Internet?",
       options: [
         "IaaS",
         "SaaS",
         "PaaS",
-        "Proprietaere Software"
+        "Proprietäre Software"
       ],
       correct: [1],
-      explanation: "SaaS (Software as a Service) bedeutet, dass fertige Software direkt ueber das Internet genutzt wird, ohne lokale Installation.",
+      explanation: "SaaS (Software as a Service) bedeutet, dass fertige Software direkt über das Internet genutzt wird, ohne lokale Installation.",
       difficulty: 1
     },
     {
       type: "truefalse",
-      prompt: "Linux ist ein Beispiel fuer proprietaere Software mit geschlossenem Quellcode.",
+      prompt: "Linux ist ein Beispiel für proprietäre Software mit geschlossenem Quellcode.",
       options: [
         "Wahr",
         "Falsch"
       ],
       correct: [1],
-      explanation: "Falsch. Linux ist Open-Source-Software mit offenem, einsehbarem Quellcode. Windows ist ein Beispiel fuer proprietaere Software.",
+      explanation: "Falsch. Linux ist Open-Source-Software mit offenem, einsehbarem Quellcode. Windows ist ein Beispiel für proprietäre Software.",
       difficulty: 1
     }
   ],

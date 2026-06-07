@@ -1,30 +1,30 @@
 import type { RawFlashcard, RawQuestion } from '../types';
 const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
   flashcards: [
-    { front: "Was bedeutet LAN?", back: "LAN = Local Area Network, ein kleines Netz vor Ort, z. B. im Buero." },
-    { front: "Was bedeutet WAN?", back: "WAN = Wide Area Network, ein grosses Netz ueber weite Strecken, z. B. das Internet." },
+    { front: "Was bedeutet LAN?", back: "LAN = Local Area Network, ein kleines Netz vor Ort, z. B. im Büro." },
+    { front: "Was bedeutet WAN?", back: "WAN = Wide Area Network, ein großes Netz über weite Strecken, z. B. das Internet." },
     { front: "Was ist WLAN und was steckt dahinter?", back: "WLAN ist ein drahtloses Netzwerk; Wi-Fi ist die Technik dahinter." },
-    { front: "Wofuer steht eine IP-Adresse?", back: "Die IP-Adresse ist die Hausnummer eines Geraets im Netz, damit Daten den richtigen Empfaenger finden." },
-    { front: "Was ist DNS und wozu dient es?", back: "DNS ist das Telefonbuch des Internets: Es uebersetzt Namen wie google.de in die zugehoerige IP-Adresse." },
+    { front: "Wofür steht eine IP-Adresse?", back: "Die IP-Adresse ist die Hausnummer eines Geräts im Netz, damit Daten den richtigen Empfänger finden." },
+    { front: "Was ist DNS und wozu dient es?", back: "DNS ist das Telefonbuch des Internets: Es übersetzt Namen wie google.de in die zugehörige IP-Adresse." },
     { front: "Was versteht man unter dem Client-Server-Modell?", back: "Der Client (z. B. der Browser) fragt etwas an, der Server liefert die Antwort." },
-    { front: "Was ist der Unterschied zwischen HTTP und HTTPS?", back: "HTTP und HTTPS sind die Sprache zwischen Browser und Webseite; bei HTTPS ist die Verbindung verschluesselt und abhoersicher." },
-    { front: "Was ist eine relationale Datenbank?", back: "Eine relationale Datenbank speichert Daten in verknuepften Tabellen. Eine Zeile ist ein Datensatz, eine Spalte ein Attribut." },
-    { front: "Was ist ein Primaerschluessel?", back: "Der Primaerschluessel ist eine eindeutige Nummer (oder ein eindeutiges Attribut), die jeden Datensatz in einer Tabelle unverwechselbar kennzeichnet." },
-    { front: "Was ist ein Fremdschluessel?", back: "Ein Fremdschluessel ist ein Verweis aus einer Tabelle auf einen Datensatz in einer anderen Tabelle und stellt so die Verknuepfung zwischen Tabellen her." },
-    { front: "Was ist SQL?", back: "SQL ist die Abfragesprache fuer relationale Datenbanken, mit der Daten abgefragt, eingefuegt, geaendert und geloescht werden." }
+    { front: "Was ist der Unterschied zwischen HTTP und HTTPS?", back: "HTTP und HTTPS sind die Sprache zwischen Browser und Webseite; bei HTTPS ist die Verbindung verschlüsselt und abhörsicher." },
+    { front: "Was ist eine relationale Datenbank?", back: "Eine relationale Datenbank speichert Daten in verknüpften Tabellen. Eine Zeile ist ein Datensatz, eine Spalte ein Attribut." },
+    { front: "Was ist ein Primärschlüssel?", back: "Der Primärschlüssel ist eine eindeutige Nummer (oder ein eindeutiges Attribut), die jeden Datensatz in einer Tabelle unverwechselbar kennzeichnet." },
+    { front: "Was ist ein Fremdschlüssel?", back: "Ein Fremdschlüssel ist ein Verweis aus einer Tabelle auf einen Datensatz in einer anderen Tabelle und stellt so die Verknüpfung zwischen Tabellen her." },
+    { front: "Was ist SQL?", back: "SQL ist die Abfragesprache für relationale Datenbanken, mit der Daten abgefragt, eingefügt, geändert und gelöscht werden." }
   ],
   questions: [
     {
       type: "mc",
       prompt: "Was bezeichnet der Begriff LAN?",
       options: [
-        "Ein grosses Netz ueber weite Strecken wie das Internet",
+        "Ein großes Netz über weite Strecken wie das Internet",
         "Ein drahtloses Netzwerk basierend auf Wi-Fi",
-        "Ein kleines Netz vor Ort, z. B. im Buero",
-        "Die Abfragesprache fuer Datenbanken"
+        "Ein kleines Netz vor Ort, z. B. im Büro",
+        "Die Abfragesprache für Datenbanken"
       ],
       correct: [2],
-      explanation: "LAN steht fuer Local Area Network und bezeichnet ein kleines Netz vor Ort, etwa in einem Buero.",
+      explanation: "LAN steht für Local Area Network und bezeichnet ein kleines Netz vor Ort, etwa in einem Büro.",
       difficulty: 1
     },
     {
@@ -32,38 +32,38 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       prompt: "Welche Aussage zu WAN ist korrekt?",
       options: [
         "WAN ist ein drahtloses Netzwerk im Nahbereich",
-        "WAN verbindet Geraete ueber weite Strecken, z. B. das Internet",
-        "WAN steht fuer Wireless Access Node",
+        "WAN verbindet Geräte über weite Strecken, z. B. das Internet",
+        "WAN steht für Wireless Access Node",
         "WAN ist eine Datenbanktechnik"
       ],
       correct: [1],
-      explanation: "WAN steht fuer Wide Area Network und bezeichnet ein grosses Netz ueber weite Strecken, beispielsweise das Internet.",
+      explanation: "WAN steht für Wide Area Network und bezeichnet ein großes Netz über weite Strecken, beispielsweise das Internet.",
       difficulty: 1
     },
     {
       type: "mc",
       prompt: "Welche Funktion hat eine IP-Adresse?",
       options: [
-        "Sie verschluesselt den Datenverkehr",
-        "Sie uebersetzt Domainnamen in Zahlen",
-        "Sie ist die eindeutige Hausnummer eines Geraets im Netz",
+        "Sie verschlüsselt den Datenverkehr",
+        "Sie übersetzt Domainnamen in Zahlen",
+        "Sie ist die eindeutige Hausnummer eines Geräts im Netz",
         "Sie verbindet Tabellen in einer Datenbank"
       ],
       correct: [2],
-      explanation: "Die IP-Adresse funktioniert wie eine Hausnummer im Netz und sorgt dafuer, dass Daten den richtigen Empfaenger erreichen.",
+      explanation: "Die IP-Adresse funktioniert wie eine Hausnummer im Netz und sorgt dafür, dass Daten den richtigen Empfänger erreichen.",
       difficulty: 1
     },
     {
       type: "mc",
       prompt: "Was macht ein DNS-Server?",
       options: [
-        "Er verschluesselt die Verbindung zwischen Browser und Server",
+        "Er verschlüsselt die Verbindung zwischen Browser und Server",
         "Er speichert Webseiteninhalte zwischen",
-        "Er uebersetzt Domainnamen wie google.de in IP-Adressen",
-        "Er verwaltet Benutzerpasswoerter"
+        "Er übersetzt Domainnamen wie google.de in IP-Adressen",
+        "Er verwaltet Benutzerpasswörter"
       ],
       correct: [2],
-      explanation: "DNS steht fuer Domain Name System und funktioniert wie ein Telefonbuch: Es uebersetzt lesbare Namen in IP-Adressen.",
+      explanation: "DNS steht für Domain Name System und funktioniert wie ein Telefonbuch: Es übersetzt lesbare Namen in IP-Adressen.",
       difficulty: 1
     },
     {
@@ -71,7 +71,7 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       prompt: "Welche Rolle nimmt der Client im Client-Server-Modell ein?",
       options: [
         "Er liefert die Antwort auf eine Anfrage",
-        "Er stellt eine Anfrage und erhaelt eine Antwort vom Server",
+        "Er stellt eine Anfrage und erhält eine Antwort vom Server",
         "Er verwaltet die Datenbank",
         "Er vergibt IP-Adressen"
       ],
@@ -85,11 +85,11 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       options: [
         "HTTPS ist schneller als HTTP",
         "HTTPS funktioniert nur im lokalen Netzwerk",
-        "Bei HTTPS ist die Verbindung verschluesselt und abhoersicher",
-        "HTTPS wird nur fuer E-Mails genutzt"
+        "Bei HTTPS ist die Verbindung verschlüsselt und abhörsicher",
+        "HTTPS wird nur für E-Mails genutzt"
       ],
       correct: [2],
-      explanation: "HTTPS ist die verschluesselte Variante von HTTP. Die Verbindung zwischen Browser und Webseite ist dadurch abhoersicher.",
+      explanation: "HTTPS ist die verschlüsselte Variante von HTTP. Die Verbindung zwischen Browser und Webseite ist dadurch abhörsicher.",
       difficulty: 1
     },
     {
@@ -98,37 +98,37 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       options: [
         "Ein Attribut (eine Eigenschaft)",
         "Einen Datensatz",
-        "Einen Primaerschluessel",
+        "Einen Primärschlüssel",
         "Eine SQL-Abfrage"
       ],
       correct: [1],
-      explanation: "In einer relationalen Datenbank entspricht eine Zeile einem Datensatz, waehrend eine Spalte ein Attribut (eine Eigenschaft) repraesentiert.",
+      explanation: "In einer relationalen Datenbank entspricht eine Zeile einem Datensatz, während eine Spalte ein Attribut (eine Eigenschaft) repräsentiert.",
       difficulty: 1
     },
     {
       type: "mc",
-      prompt: "Wofuer wird ein Fremdschluessel in einer Datenbank verwendet?",
+      prompt: "Wofür wird ein Fremdschlüssel in einer Datenbank verwendet?",
       options: [
         "Um einen Datensatz innerhalb einer Tabelle eindeutig zu identifizieren",
         "Um die Verbindung zum Internet herzustellen",
         "Um auf einen Datensatz in einer anderen Tabelle zu verweisen",
-        "Um SQL-Abfragen zu verschluesseln"
+        "Um SQL-Abfragen zu verschlüsseln"
       ],
       correct: [2],
-      explanation: "Ein Fremdschluessel verweist auf einen Datensatz in einer anderen Tabelle und verknuepft so zwei Tabellen miteinander.",
+      explanation: "Ein Fremdschlüssel verweist auf einen Datensatz in einer anderen Tabelle und verknüpft so zwei Tabellen miteinander.",
       difficulty: 2
     },
     {
       type: "mc",
       prompt: "Was ist SQL?",
       options: [
-        "Ein Netzwerkprotokoll zur Datenuebertragung",
-        "Die Abfragesprache fuer relationale Datenbanken",
-        "Ein Verschluesselungsverfahren fuer HTTPS",
-        "Ein Geraet zur IP-Vergabe"
+        "Ein Netzwerkprotokoll zur Datenübertragung",
+        "Die Abfragesprache für relationale Datenbanken",
+        "Ein Verschlüsselungsverfahren für HTTPS",
+        "Ein Gerät zur IP-Vergabe"
       ],
       correct: [1],
-      explanation: "SQL (Structured Query Language) ist die standardisierte Abfragesprache fuer relationale Datenbanken.",
+      explanation: "SQL (Structured Query Language) ist die standardisierte Abfragesprache für relationale Datenbanken.",
       difficulty: 1
     },
     {
@@ -141,10 +141,10 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       type: "truefalse",
-      prompt: "Ein Primaerschluessel darf in einer Tabelle mehrfach vorkommen, um Datensaetze zu gruppieren.",
+      prompt: "Ein Primärschlüssel darf in einer Tabelle mehrfach vorkommen, um Datensätze zu gruppieren.",
       options: ["Wahr", "Falsch"],
       correct: [1],
-      explanation: "Falsch. Ein Primaerschluessel muss eindeutig sein und identifiziert jeden Datensatz in einer Tabelle unverwechselbar.",
+      explanation: "Falsch. Ein Primärschlüssel muss eindeutig sein und identifiziert jeden Datensatz in einer Tabelle unverwechselbar.",
       difficulty: 2
     }
   ],

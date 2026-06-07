@@ -22,11 +22,11 @@ const topic: RawTopic = {
       back: 'Das Dehnungs-h zeigt einen langen Vokal an und steht vor l, m, n, r. Beispiele: fahren, Wahl, Zahl, nehmen, Uhr, Stuhl. Es steht NICHT vor anderen Konsonanten.',
     },
     {
-      front: 'Wie wird "Adresse" richtig geschrieben?',
+      front: 'Heißt es "Adresse" oder "Addresse"?',
       back: 'Adresse – mit einem d und Doppel-s. Häufiger Fehler: "Addresse" (doppeltes d) oder "Adrese" (einfaches s).',
     },
     {
-      front: 'Wie wird "Rhythmus" richtig geschrieben?',
+      front: 'Heißt es "Rythmus" oder "Rhythmus"?',
       back: 'Rhythmus – mit rh, y und th. Das Wort stammt aus dem Griechischen. Häufige Fehler: "Rythmus", "Rhythhmus".',
     },
     {
@@ -46,11 +46,11 @@ const topic: RawTopic = {
       back: '"Wider" bedeutet "gegen" (widersprechen, widerrufen). "Wieder" bedeutet "erneut" oder "zurück" (wiederkommen, wieder arbeiten). Merkhilfe: wieder = wie + der (zeitlich).',
     },
     {
-      front: 'Wie wird "Tipp" richtig geschrieben?',
+      front: 'Heißt es "Tip" oder "Tipp"?',
       back: 'Tipp – mit Doppel-p (nach kurzem i). Ebenso: tippen. Häufiger Fehler: "Tip" (ein p). Im Englischen ist "tip" korrekt, im Deutschen gilt "Tipp".',
     },
     {
-      front: 'Wie wird "Stress" richtig geschrieben?',
+      front: 'Schreibt man "Stress" oder "Streß"?',
       back: 'Stress – mit Doppel-s am Ende (nach kurzem e). Häufiger Fehler: "Streß" (veraltete Schreibweise vor der Rechtschreibreform 1996).',
     },
     {
@@ -62,7 +62,7 @@ const topic: RawTopic = {
       back: 'Substantivierung = Verben, Adjektive oder andere Wortarten werden wie Nomen verwendet. Erkennungszeichen: Ein Artikel (der, die, das) oder Pronomen (alles, nichts, etwas) steht davor. Beispiel: "das Schreiben", "etwas Schönes".',
     },
     {
-      front: 'Wie wird "Standard" richtig geschrieben?',
+      front: 'Heißt es "Standard" oder "Standart"?',
       back: 'Standard – mit st am Anfang und ohne h. Häufige Fehler: "Standart" (mit t am Ende) ist falsch. Merkhilfe: Standard → Norm, kein "Standart".',
     },
     {
@@ -74,7 +74,7 @@ const topic: RawTopic = {
       back: 'Nach kurzen Vokalen → ss: Fluss, Schloss, muss, dass. Nach langen Vokalen und Diphthongen → ß: Straße, Maß, heiß, außen. Das "ß" in Großbuchstaben: SS (z. B. STRASSE) oder ẞ.',
     },
     {
-      front: 'Wie wird "empfehlen" richtig geschrieben?',
+      front: 'Heißt es "empfelen" oder "empfehlen"?',
       back: 'Empfehlen – mit pf und ohne h nach dem e: empfehlen, ich empfehle, Empfehlung. Häufige Fehler: "Empfelung" (ein l), "Empfhelen".',
     },
     {

@@ -2,280 +2,222 @@ import type { RawFlashcard, RawQuestion } from '../types';
 const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
   flashcards: [
     {
-      front: "Wann schreibt man 'das' und wann 'dass'?",
-      back: "'das' ist richtig, wenn man es durch 'dieses', 'jenes' oder 'welches' ersetzen kann (Artikel oder Pronomen). 'dass' leitet einen Nebensatz ein und ist nicht durch diese Woerter ersetzbar."
+      front: "Wann schreibt man 'das', wann 'dass'?",
+      back: "'das' schreibt man, wenn man es durch 'dieses', 'jenes' oder 'welches' ersetzen kann (Artikel oder Pronomen). 'dass' leitet einen Nebensatz ein und ist nicht ersetzbar.",
     },
     {
-      front: "Wie prueft man, ob 'das' oder 'dass' korrekt ist?",
-      back: "Ersatzprobe: Kann man das Wort durch 'dieses', 'jenes' oder 'welches' ersetzen, schreibt man 'das'. Wenn nicht, schreibt man 'dass'."
+      front: "Wie lautet die Ersatzprobe bei 'das' / 'dass'?",
+      back: "Lässt sich das Wort durch 'dieses', 'jenes' oder 'welches' ersetzen, schreibt man 'das'. Geht das nicht, schreibt man 'dass'.",
     },
     {
-      front: "Welche Woerter signalisieren, dass das folgende Wort grossgeschrieben wird?",
-      back: "Signalwoerter fuer Substantivierung: das, beim, zum, etwas, nichts. Beispiele: das Lesen, beim Schreiben, etwas Neues."
+      front: "Welche Signalwörter kündigen eine Großschreibung (Substantivierung) an?",
+      back: "das, beim, zum, etwas, nichts. Beispiele: das Lesen, beim Schreiben, etwas Neues, nichts Besonderes.",
     },
     {
-      front: "Was ist eine Substantivierung und wie wird sie geschrieben?",
-      back: "Substantivierungen sind Verben oder Adjektive, die als Nomen verwendet werden. Sie werden grossgeschrieben. Beispiele: das Lesen, das Schreiben, etwas Neues, nichts Besonderes."
+      front: "Wann schreibt man 'ss', wann 'ß'?",
+      back: "Nach einem kurzen Vokal steht 'ss' (Beispiel: Fluss). Nach einem langen Vokal oder einem Doppellaut steht 'ß' (Beispiel: Straße).",
     },
     {
-      front: "Wann schreibt man 'ss' und wann 'sz' (scharfes s)?",
-      back: "Nach kurzem Vokal steht 'ss' (Beispiel: Fluss). Nach langem Vokal oder Doppellaut (Diphthong) steht 'sz' (Beispiel: Strasse)."
+      front: "Warum schreibt man 'Fluss' mit 'ss'?",
+      back: "Weil der Vokal 'u' kurz gesprochen wird – nach kurzem Vokal steht 'ss'.",
     },
     {
-      front: "Wie schreibt man 'Fluss' und warum?",
-      back: "'Fluss' schreibt man mit 'ss', weil der Vokal 'u' kurz gesprochen wird."
+      front: "Warum schreibt man 'Straße' mit 'ß'?",
+      back: "Weil der Vokal 'a' lang gesprochen wird – nach langem Vokal steht 'ß'.",
     },
     {
-      front: "Wie schreibt man 'Strasse' und warum?",
-      back: "'Strasse' schreibt man mit 'sz', weil der Vokal 'a' lang gesprochen wird."
+      front: "Heißt es 'Email' oder 'E-Mail'?",
+      back: "E-Mail – mit Bindestrich und großem 'M'. 'Email' ohne Bindestrich ist falsch.",
     },
     {
-      front: "Wie schreibt man 'Adresse' korrekt?",
-      back: "'Adresse' - nicht 'Addresse'. Nur ein 'd' am Anfang."
+      front: "Heißt es 'wiederspiegeln' oder 'widerspiegeln'?",
+      back: "widerspiegeln – von 'wider' (= entgegen, zurück), nicht von 'wieder' (= erneut).",
     },
     {
-      front: "Wie schreibt man 'Standard' korrekt?",
-      back: "'Standard' - nicht 'Standart'. Das Wort endet auf '-ard', nicht '-art'."
+      front: "Heißt es 'Adresse' oder 'Addresse'?",
+      back: "Adresse – nur ein 'd', dafür Doppel-s.",
     },
     {
-      front: "Wie schreibt man 'naemlich' korrekt?",
-      back: "'naemlich' - nicht 'naehmlich'. Kein 'h' nach dem 'a'."
+      front: "Heißt es 'Standard' oder 'Standart'?",
+      back: "Standard – das Wort endet auf '-ard', nicht auf '-art'.",
     },
     {
-      front: "Wie schreibt man die elektronische Post korrekt?",
-      back: "'E-Mail' mit Bindestrich und grossem M - nicht 'Email' ohne Bindestrich."
+      front: "Heißt es 'nämlich' oder 'nähmlich'?",
+      back: "nämlich – ohne 'h' nach dem 'ä'.",
     },
     {
-      front: "Wie schreibt man 'separat' korrekt?",
-      back: "'separat' - nicht 'seperat'. Das zweite 'e' ist ein 'a': sep-a-rat."
+      front: "Heißt es 'separat' oder 'seperat'?",
+      back: "separat – mit 'a' als zweitem Vokal. Eselsbrücke: sep-a-rat.",
     },
     {
-      front: "Wie schreibt man 'Ressourcen' korrekt?",
-      back: "'Ressourcen' mit Doppel-s - nicht 'Resourcen' mit einfachem s."
+      front: "Heißt es 'Ressourcen' oder 'Resourcen'?",
+      back: "Ressourcen – mit Doppel-s.",
     },
     {
-      front: "Wie schreibt man 'widerspiegeln' korrekt?",
-      back: "'widerspiegeln' - nicht 'wiederspiegeln'. Das Praefix lautet 'wider-' (entgegen), nicht 'wieder-' (erneut)."
+      front: "Heißt es 'auf jeden Fall' oder 'aufjedenfall'?",
+      back: "auf jeden Fall – drei getrennte Wörter. Die Zusammenschreibung ist falsch.",
     },
     {
-      front: "Wie schreibt man 'auf jeden Fall' korrekt?",
-      back: "'auf jeden Fall' - drei getrennte Woerter, nicht zusammengeschrieben als 'aufjedenfall'."
+      front: "Heißt es 'gibts' oder 'gibt's'?",
+      back: "gibt's – mit Apostroph. Der Apostroph ersetzt das weggelassene 'e' von 'es'.",
     },
-    {
-      front: "Wie schreibt man die Kurzform von 'gibt es' korrekt?",
-      back: "'gibt's' mit Apostroph - nicht 'gibts' ohne Apostroph. Der Apostroph ersetzt das weggelassene 'e'."
-    }
   ],
   questions: [
     {
       type: "mc",
-      prompt: "Welcher Satz verwendet 'das' korrekt?",
+      prompt: "In welchem Satz ist 'das' richtig geschrieben?",
       options: [
         "Ich hoffe, das du kommst.",
         "Das Buch, das ich lese, ist spannend.",
         "Er sagt, das es klappt.",
-        "Ich weiss, das sie recht hat."
+        "Ich weiß, das sie recht hat.",
       ],
       correct: [1],
-      explanation: "In 'das Buch, das ich lese' kann 'das' durch 'welches' ersetzt werden (das Buch, welches ich lese) - also Relativpronomen, korrekt mit einfachem 's'. In den anderen Saetzen leitet 'das' einen Nebensatz ein und muesste 'dass' geschrieben werden.",
-      difficulty: 2
+      explanation: "In 'das Buch, das ich lese' lässt sich 'das' durch 'welches' ersetzen – also Relativpronomen, korrekt mit einem 's'. In den anderen Sätzen leitet es einen Nebensatz ein und müsste 'dass' heißen.",
+      difficulty: 2,
     },
     {
       type: "mc",
-      prompt: "Welcher Satz verwendet 'dass' korrekt?",
+      prompt: "In welchem Satz ist 'dass' richtig geschrieben?",
       options: [
-        "Das Auto, dass dort steht, gehoert mir.",
+        "Das Auto, dass dort steht, gehört mir.",
         "Ich freue mich, dass du da bist.",
-        "Weisst du, wo dass Buch liegt?",
-        "Er nimmt dass Heft."
+        "Weißt du, wo dass Buch liegt?",
+        "Er nimmt dass Heft.",
       ],
       correct: [1],
-      explanation: "'Ich freue mich, dass du da bist' - hier leitet 'dass' einen Nebensatz ein und kann nicht durch 'dieses' oder 'jenes' ersetzt werden. In den anderen Optionen waere 'das' korrekt.",
-      difficulty: 2
+      explanation: "In 'Ich freue mich, dass du da bist' leitet 'dass' einen Nebensatz ein und lässt sich nicht durch 'dieses/jenes/welches' ersetzen. In den anderen Optionen wäre 'das' richtig.",
+      difficulty: 2,
     },
     {
       type: "truefalse",
-      prompt: "Die Ersatzprobe fuer 'das' lautet: Wenn man es durch 'dieses', 'jenes' oder 'welches' ersetzen kann, schreibt man 'das'.",
+      prompt: "Ersatzprobe: Wenn man das Wort durch 'dieses', 'jenes' oder 'welches' ersetzen kann, schreibt man 'das'.",
       options: ["Richtig", "Falsch"],
       correct: [0],
-      explanation: "Genau so funktioniert die Ersatzprobe: Ist die Ersetzung durch 'dieses', 'jenes' oder 'welches' moeglich, handelt es sich um einen Artikel oder ein Pronomen und man schreibt 'das'. Andernfalls schreibt man 'dass'.",
-      difficulty: 1
+      explanation: "Genau so funktioniert die Ersatzprobe. Ist die Ersetzung möglich, handelt es sich um Artikel/Pronomen → 'das'. Andernfalls → 'dass'.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Welches Signalwort deutet darauf hin, dass das folgende Wort grossgeschrieben werden muss?",
-      options: [
-        "und",
-        "aber",
-        "beim",
-        "oder"
-      ],
+      prompt: "Welches Signalwort deutet auf eine Großschreibung (Substantivierung) hin?",
+      options: ["und", "aber", "beim", "oder"],
       correct: [2],
-      explanation: "'beim' ist ein Signalwort fuer Substantivierungen (z. B. 'beim Schreiben'). Die Woerter 'und', 'aber' und 'oder' sind Konjunktionen und keine Signalwoerter fuer Grossschreibung.",
-      difficulty: 1
+      explanation: "'beim' kündigt eine Substantivierung an (z. B. 'beim Schreiben'). 'und', 'aber', 'oder' sind Konjunktionen und kein Signal für Großschreibung.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Welches der folgenden Beispiele ist eine korrekt grossgeschriebene Substantivierung?",
+      prompt: "Welche Schreibweise ist eine korrekt großgeschriebene Substantivierung?",
+      options: ["das lesen", "Das Lesen", "beim schreiben", "etwas neues"],
+      correct: [1],
+      explanation: "'Das Lesen' ist richtig: Das Verb 'lesen' wird nach dem Signalwort 'das' substantiviert und großgeschrieben. Die anderen Varianten haben einen Groß-/Kleinschreibfehler.",
+      difficulty: 2,
+    },
+    {
+      type: "mc",
+      prompt: "Nach welchem Laut steht 'ß' (wie in 'Straße')?",
       options: [
-        "das lesen",
-        "Das Lesen",
-        "Beim schreiben",
-        "etwas neues"
+        "nach einem kurzen Vokal",
+        "nach einem langen Vokal oder Doppellaut",
+        "immer am Wortende",
+        "nur nach Konsonanten",
       ],
       correct: [1],
-      explanation: "'Das Lesen' ist korrekt: Das Verb 'lesen' wird nach dem Signalwort 'das' substantiviert und grossgeschrieben. Alle anderen Optionen haben einen Fehler bei der Gross- oder Kleinschreibung.",
-      difficulty: 2
-    },
-    {
-      type: "truefalse",
-      prompt: "Nach einem langen Vokal schreibt man 'ss' (Beispiel: Strasse mit 'ss').",
-      options: ["Richtig", "Falsch"],
-      correct: [1],
-      explanation: "Falsch. Nach einem langen Vokal oder Doppellaut schreibt man 'sz' (scharfes s), also 'Strasse'. 'ss' steht nach kurzem Vokal, z. B. 'Fluss'.",
-      difficulty: 2
+      explanation: "Nach langem Vokal oder Doppellaut steht 'ß' (Straße). Nach kurzem Vokal steht dagegen 'ss' (Fluss).",
+      difficulty: 2,
     },
     {
       type: "mc",
-      prompt: "Welches Wort wird nach der ss/sz-Regel korrekt geschrieben?",
-      options: [
-        "Flus",
-        "Fluß",
-        "Fluss",
-        "Flusss"
-      ],
+      prompt: "Welches Wort ist nach der ss/ß-Regel korrekt geschrieben?",
+      options: ["Flus", "Straase", "Fluss", "Flusss"],
       correct: [2],
-      explanation: "In 'Fluss' ist der Vokal 'u' kurz, deshalb steht 'ss'. 'Flus' (ein s) ist falsch, 'Flusss' (drei s) ist falsch, und 'Fluß' waere nach alter Rechtschreibung moeglich, ist aber heute nicht mehr die Standardschreibung.",
-      difficulty: 1
+      explanation: "In 'Fluss' ist das 'u' kurz, daher 'ss'. 'Flus' (ein s) und 'Flusss' (drei s) sind falsch.",
+      difficulty: 1,
     },
     {
       type: "mc",
       prompt: "Welche Schreibweise ist korrekt?",
-      options: [
-        "Addresse",
-        "Adresse",
-        "Adrresse",
-        "Adrese"
-      ],
+      options: ["Addresse", "Adresse", "Adrresse", "Adrese"],
       correct: [1],
-      explanation: "'Adresse' ist korrekt - mit einem 'd' und einem Doppel-s. 'Addresse' mit Doppel-d ist ein haeufiger Fehler.",
-      difficulty: 1
+      explanation: "'Adresse' ist richtig – mit einem 'd' und Doppel-s. 'Addresse' mit Doppel-d ist ein häufiger Fehler.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Wie schreibt man das Wort fuer eine festgelegte Norm oder Massgabe korrekt?",
-      options: [
-        "Standart",
-        "Standard",
-        "Stantard",
-        "Stanndard"
-      ],
+      prompt: "Wie schreibt man das Wort für eine festgelegte Norm korrekt?",
+      options: ["Standart", "Standard", "Stantard", "Stanndard"],
       correct: [1],
-      explanation: "'Standard' endet auf '-ard', nicht auf '-art'. 'Standart' ist ein sehr haeufiger Rechtschreibfehler.",
-      difficulty: 1
+      explanation: "'Standard' endet auf '-ard'. 'Standart' ist ein sehr häufiger Rechtschreibfehler.",
+      difficulty: 1,
     },
     {
       type: "truefalse",
-      prompt: "'naemlich' wird korrekt mit 'h' nach dem 'ae' geschrieben: 'naehmlich'.",
+      prompt: "Die korrekte Schreibweise ist 'nähmlich' – mit 'h' nach dem 'ä'.",
       options: ["Richtig", "Falsch"],
       correct: [1],
-      explanation: "Falsch. Die korrekte Schreibweise ist 'naemlich' ohne 'h'. 'naehmlich' ist ein haeufiger Fehler.",
-      difficulty: 1
+      explanation: "Falsch. Richtig ist 'nämlich' ohne 'h'. 'nähmlich' ist ein häufiger Fehler.",
+      difficulty: 1,
     },
     {
       type: "mc",
       prompt: "Welche Schreibweise der elektronischen Post ist korrekt?",
-      options: [
-        "email",
-        "Email",
-        "E-Mail",
-        "e-mail"
-      ],
+      options: ["email", "Email", "E-Mail", "e-mail"],
       correct: [2],
-      explanation: "'E-Mail' ist korrekt: mit Bindestrich und grossem 'M'. Das Wort ist aus dem Englischen entlehnt und wird im Deutschen mit Bindestrich und Grossbuchstaben geschrieben.",
-      difficulty: 1
+      explanation: "'E-Mail' ist korrekt: mit Bindestrich und großem 'M'.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Welche Schreibweise von 'separat' ist korrekt?",
-      options: [
-        "seperat",
-        "seperrat",
-        "separat",
-        "sepparat"
-      ],
+      prompt: "Welche Schreibweise ist korrekt?",
+      options: ["seperat", "seperrat", "separat", "sepparat"],
       correct: [2],
-      explanation: "'separat' ist korrekt - mit 'a' als zweitem Vokal, nicht 'e'. Die Eselsbruecke: sep-a-rat.",
-      difficulty: 1
+      explanation: "'separat' ist richtig – mit 'a' als zweitem Vokal. Eselsbrücke: sep-a-rat.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Wie lautet die korrekte Schreibweise des Plurals von Ressource?",
-      options: [
-        "Resourcen",
-        "Ressourcen",
-        "Ressourecen",
-        "Resourcchen"
-      ],
+      prompt: "Wie lautet der Plural von 'Ressource' korrekt?",
+      options: ["Resourcen", "Ressourcen", "Ressourecen", "Resourccen"],
       correct: [1],
-      explanation: "'Ressourcen' ist korrekt - mit Doppel-s. 'Resourcen' mit einfachem s ist falsch.",
-      difficulty: 1
+      explanation: "'Ressourcen' ist richtig – mit Doppel-s. 'Resourcen' mit einfachem s ist falsch.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Welche Schreibweise ist korrekt: 'widerspiegeln' oder 'wiederspiegeln'?",
+      prompt: "Heißt es 'widerspiegeln' oder 'wiederspiegeln' – und warum?",
       options: [
         "'wiederspiegeln', weil der Spiegel etwas wiederholt",
-        "'widerspiegeln', weil das Praefix 'wider-' entgegen bedeutet",
-        "Beide Schreibweisen sind gleichwertig korrekt",
-        "'Widerspiegeln' nur am Satzanfang, sonst 'wiederspiegeln'"
+        "'widerspiegeln', weil das Präfix 'wider-' (entgegen) steckt",
+        "Beide Schreibweisen sind gleichwertig",
+        "'Widerspiegeln' nur am Satzanfang",
       ],
       correct: [1],
-      explanation: "'widerspiegeln' ist korrekt. Das Praefix 'wider-' bedeutet entgegen oder zurueck (wie in Widerspruch). 'wieder-' bedeutet erneut (wie in wiederholen). Etwas spiegelt etwas anderes wider, nicht wieder.",
-      difficulty: 2
+      explanation: "'widerspiegeln' ist richtig. 'wider-' bedeutet entgegen/zurück (wie in Widerspruch); 'wieder-' bedeutet erneut (wie in wiederholen). Etwas spiegelt etwas anderes wider.",
+      difficulty: 2,
     },
     {
       type: "truefalse",
-      prompt: "'auf jeden Fall' wird als ein zusammengeschriebenes Wort 'aufjedenfall' geschrieben.",
+      prompt: "'auf jeden Fall' wird als ein Wort zusammengeschrieben: 'aufjedenfall'.",
       options: ["Richtig", "Falsch"],
       correct: [1],
-      explanation: "Falsch. 'auf jeden Fall' sind drei getrennte Woerter. Die Zusammenschreibung 'aufjedenfall' ist falsch.",
-      difficulty: 1
+      explanation: "Falsch. 'auf jeden Fall' sind drei getrennte Wörter; 'aufjedenfall' ist falsch.",
+      difficulty: 1,
     },
     {
       type: "mc",
-      prompt: "Wie schreibt man die Kurzform von 'gibt es' korrekt?",
-      options: [
-        "gibts",
-        "gibt's",
-        "gibt`s",
-        "Gibs"
-      ],
+      prompt: "Wie schreibt man die Kurzform von 'es gibt' korrekt?",
+      options: ["gibts", "gibt's", "gibt`s", "Gibs"],
       correct: [1],
-      explanation: "'gibt's' mit einem geraden Apostroph ist korrekt. Der Apostroph zeigt an, dass das 'e' von 'es' weggelassen wurde. 'gibts' ohne Apostroph ist falsch.",
-      difficulty: 1
-    },
-    {
-      type: "mc",
-      prompt: "Welches Signalwort aus der folgenden Liste deutet auf eine Substantivierung hin?",
-      options: [
-        "weil",
-        "etwas",
-        "trotzdem",
-        "obwohl"
-      ],
-      correct: [1],
-      explanation: "'etwas' ist ein Signalwort fuer Substantivierungen (z. B. 'etwas Neues'). 'weil', 'trotzdem' und 'obwohl' sind Konjunktionen und keine Signalwoerter fuer Grossschreibung.",
-      difficulty: 2
+      explanation: "'gibt's' mit geradem Apostroph ist richtig. Der Apostroph ersetzt das weggelassene 'e' von 'es'. 'gibts' ohne Apostroph ist falsch.",
+      difficulty: 1,
     },
     {
       type: "fill",
-      prompt: "Ergaenze die Regel: Nach kurzem Vokal schreibt man ___, nach langem Vokal oder Doppellaut schreibt man ___.",
-      options: [],
-      correct: ["ss", "sz"],
-      explanation: "Nach kurzem Vokal steht 'ss' (Beispiel: Fluss), nach langem Vokal oder Doppellaut steht 'sz' (Beispiel: Strasse).",
-      difficulty: 2
-    }
+      prompt: "Ergänze: Nach kurzem Vokal schreibt man ___, nach langem Vokal oder Doppellaut schreibt man ___ (gemeint sind die beiden s-Schreibweisen).",
+      correct: ["ss, ß", "ss und ß", "ss ß"],
+      explanation: "Nach kurzem Vokal steht 'ss' (Fluss), nach langem Vokal oder Doppellaut steht 'ß' (Straße).",
+      difficulty: 2,
+    },
   ],
 };
 export default supplement;

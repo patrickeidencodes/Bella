@@ -2,35 +2,35 @@ import type { RawFlashcard, RawQuestion } from '../types';
 const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
   flashcards: [
     {
-      front: "Worauf muss man beim Lueckentext achten?",
+      front: "Worauf muss man beim Lückentext achten?",
       back: "Auf Sinn UND Grammatik: das eingesetzte Wort muss inhaltlich passen und den richtigen Fall sowie die richtige Zeitform haben."
     },
     {
-      front: "Was pruefen bei der Fehlersuche?",
+      front: "Was prüfen bei der Fehlersuche?",
       back: "Rechtschreib-, Grammatik- und Kommafehler – besonders auf das/dass, Gross-/Kleinschreibung und Kommas achten."
     },
     {
       front: "Wie liest man einen Satz bei der Fehlersuche am besten?",
-      back: "Langsam lesen, damit keine Fehler uebersehen werden."
+      back: "Langsam lesen, damit keine Fehler übersehen werden."
     },
     {
       front: "Welche drei Fehlerkategorien gibt es bei der Fehlersuche?",
       back: "1. Rechtschreibfehler, 2. Grammatikfehler, 3. Kommafehler."
     },
     {
-      front: "Woran erkennt man, ob ein eingesetztes Wort im Lueckentext grammatikalisch korrekt ist?",
+      front: "Woran erkennt man, ob ein eingesetztes Wort im Lückentext grammatikalisch korrekt ist?",
       back: "Es muss in Fall (Kasus) und Zeitform (Tempus) zum restlichen Satz passen."
     }
   ],
   questions: [
     {
       type: "mc",
-      prompt: "Was muss beim Einsetzen eines Wortes im Lueckentext unbedingt beachtet werden?",
+      prompt: "Was muss beim Einsetzen eines Wortes im Lückentext unbedingt beachtet werden?",
       options: [
         "Nur der Sinn des Satzes",
         "Nur die Rechtschreibung des Wortes",
         "Sinn UND Grammatik (Fall und Zeitform)",
-        "Die Laenge des Wortes"
+        "Die Länge des Wortes"
       ],
       correct: [2],
       explanation: "Das eingesetzte Wort muss sowohl inhaltlich sinnvoll sein als auch grammatikalisch korrekt – also richtiger Fall und richtige Zeitform.",
@@ -51,33 +51,33 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       type: "mc",
-      prompt: "Welche Strategie wird fuer die Fehlersuche empfohlen?",
+      prompt: "Welche Strategie wird für die Fehlersuche empfohlen?",
       options: [
-        "Den Text schnell ueberfliegen",
+        "Den Text schnell überfliegen",
         "Nur auf Kommas achten",
         "Den Satz langsam lesen",
-        "Nur Substantive pruefen"
+        "Nur Substantive prüfen"
       ],
       correct: [2],
-      explanation: "Langsames Lesen hilft, alle Arten von Fehlern zu entdecken und nichts zu uebersehen.",
+      explanation: "Langsames Lesen hilft, alle Arten von Fehlern zu entdecken und nichts zu übersehen.",
       difficulty: 1
     },
     {
       type: "truefalse",
-      prompt: "Bei der Fehlersuche genuegt es, nur auf Rechtschreibfehler zu achten.",
+      prompt: "Bei der Fehlersuche genügt es, nur auf Rechtschreibfehler zu achten.",
       options: ["Wahr", "Falsch"],
       correct: [1],
-      explanation: "Es muessen auch Grammatik- und Kommafehler beachtet werden – alle drei Kategorien sind relevant.",
+      explanation: "Es müssen auch Grammatik- und Kommafehler beachtet werden – alle drei Kategorien sind relevant.",
       difficulty: 1
     },
     {
       type: "mc",
-      prompt: "Welche grammatikalischen Aspekte muss ein eingesetztes Wort im Lueckentext erfuellen?",
+      prompt: "Welche grammatikalischen Aspekte muss ein eingesetztes Wort im Lückentext erfüllen?",
       options: [
         "Richtige Silbenanzahl und Betonung",
         "Richtiger Fall (Kasus) und richtige Zeitform (Tempus)",
         "Richtiges Geschlecht und richtige Silbentrennung",
-        "Richtige Wortlaenge und Endung"
+        "Richtige Wortlänge und Endung"
       ],
       correct: [1],
       explanation: "Das Wort muss im richtigen Kasus und im richtigen Tempus stehen, damit es grammatikalisch in den Satz passt.",
@@ -87,10 +87,10 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       type: "mc",
       prompt: "Warum ist das Verwechseln von 'das' und 'dass' ein typischer Fehler bei der Fehlersuche?",
       options: [
-        "Weil beide Woerter gleich ausgesprochen werden und leicht verwechselt werden",
-        "Weil 'dass' immer grossgeschrieben wird",
+        "Weil beide Wörter gleich ausgesprochen werden und leicht verwechselt werden",
+        "Weil 'dass' immer großgeschrieben wird",
         "Weil 'das' nur als Artikel vorkommt",
-        "Weil beide Woerter unterschiedlich betont werden"
+        "Weil beide Wörter unterschiedlich betont werden"
       ],
       correct: [0],
       explanation: "Das/dass klingt identisch, hat aber unterschiedliche grammatikalische Funktionen – deshalb wird es im Lernskript als besondere Stolperfalle genannt.",

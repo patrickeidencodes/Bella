@@ -3,18 +3,18 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
   flashcards: [
     {
       front: "Wann steht vor einem Nebensatz ein Komma?",
-      back: "Vor Nebensaetzen mit dass, weil, ob, wenn, der, die, das steht immer ein Komma. Beispiel: Ich weiss, dass du kommst."
+      back: "Vor Nebensätzen mit dass, weil, ob, wenn, der, die, das steht immer ein Komma. Beispiel: Ich weiß, dass du kommst."
     },
     {
-      front: "Wie werden Aufzaehlungen mit Komma gebildet?",
-      back: "Bei Aufzaehlungen steht zwischen den Gliedern ein Komma, aber nicht vor dem letzten 'und'. Beispiel: Ich kaufe Aepfel, Birnen und Orangen."
+      front: "Wie werden Aufzählungen mit Komma gebildet?",
+      back: "Bei Aufzählungen steht zwischen den Gliedern ein Komma, aber nicht vor dem letzten 'und'. Beispiel: Ich kaufe Aepfel, Birnen und Orangen."
     },
     {
       front: "Was ist ein Einschub und wie wird er gekennzeichnet?",
       back: "Ein Einschub ist ein eingeschobener Zusatz im Satz. Er wird von Kommas umschlossen. Beispiel: Herr Meier, unser Leiter, kommt."
     },
     {
-      front: "Vor welchen Woertern steht laut Regel ein Komma?",
+      front: "Vor welchen Wörtern steht laut Regel ein Komma?",
       back: "Vor aber, sondern und doch steht ein Komma. Beispiel: Klein, aber fein."
     }
   ],
@@ -23,21 +23,21 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
       type: "mc",
       prompt: "Welcher Satz verwendet das Komma vor einem Nebensatz korrekt?",
       options: [
-        "Ich weiss dass du kommst.",
-        "Ich weiss, dass du kommst.",
-        "Ich weiss, dass, du kommst.",
-        "Ich, weiss dass du kommst."
+        "Ich weiß dass du kommst.",
+        "Ich weiß, dass du kommst.",
+        "Ich weiß, dass, du kommst.",
+        "Ich, weiß dass du kommst."
       ],
       correct: [1],
-      explanation: "Vor Nebensaetzen mit 'dass' steht ein Komma. Richtig ist: 'Ich weiss, dass du kommst.'",
+      explanation: "Vor Nebensätzen mit 'dass' steht ein Komma. Richtig ist: 'Ich weiß, dass du kommst.'",
       difficulty: 1
     },
     {
       type: "truefalse",
-      prompt: "Bei einer Aufzaehlung steht auch vor dem letzten 'und' ein Komma.",
+      prompt: "Bei einer Aufzählung steht auch vor dem letzten 'und' ein Komma.",
       options: ["Richtig", "Falsch"],
       correct: [1],
-      explanation: "Bei Aufzaehlungen steht ein Komma zwischen den Gliedern, aber NICHT vor dem letzten 'und'.",
+      explanation: "Bei Aufzählungen steht ein Komma zwischen den Gliedern, aber NICHT vor dem letzten 'und'.",
       difficulty: 1
     },
     {
@@ -63,7 +63,7 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
         "Herr Meier unser Leiter kommt."
       ],
       correct: [2],
-      explanation: "Einschuebe werden von Kommas umschlossen: 'Herr Meier, unser Leiter, kommt.'",
+      explanation: "Einschübe werden von Kommas umschlossen: 'Herr Meier, unser Leiter, kommt.'",
       difficulty: 2
     },
     {
@@ -76,15 +76,15 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       type: "mc",
-      prompt: "Welcher Satz zeigt eine korrekte Aufzaehlung ohne Komma vor 'und'?",
+      prompt: "Welcher Satz zeigt eine korrekte Aufzählung ohne Komma vor 'und'?",
       options: [
-        "Ich mag Hunde, Katzen, und Voegel.",
-        "Ich mag Hunde Katzen und Voegel.",
-        "Ich mag Hunde, Katzen und Voegel.",
-        "Ich mag, Hunde, Katzen, und Voegel."
+        "Ich mag Hunde, Katzen, und Vögel.",
+        "Ich mag Hunde Katzen und Vögel.",
+        "Ich mag Hunde, Katzen und Vögel.",
+        "Ich mag, Hunde, Katzen, und Vögel."
       ],
       correct: [2],
-      explanation: "Bei Aufzaehlungen steht kein Komma vor dem letzten 'und'. Korrekt ist: 'Ich mag Hunde, Katzen und Voegel.'",
+      explanation: "Bei Aufzählungen steht kein Komma vor dem letzten 'und'. Korrekt ist: 'Ich mag Hunde, Katzen und Vögel.'",
       difficulty: 1
     },
     {
@@ -102,9 +102,9 @@ const supplement: { flashcards: RawFlashcard[]; questions: RawQuestion[] } = {
     },
     {
       type: "fill",
-      prompt: "Ergaenze die Regel: Vor Nebensaetzen mit 'weil', 'ob' oder 'wenn' steht ein ___.",
+      prompt: "Ergänze die Regel: Vor Nebensätzen mit 'weil', 'ob' oder 'wenn' steht ein ___.",
       correct: ["Komma"],
-      explanation: "Vor Nebensaetzen mit dass, weil, ob, wenn, der, die, das steht immer ein Komma.",
+      explanation: "Vor Nebensätzen mit dass, weil, ob, wenn, der, die, das steht immer ein Komma.",
       difficulty: 1
     }
   ],
